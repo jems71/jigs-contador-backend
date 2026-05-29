@@ -58,7 +58,6 @@ async def procesar_foto_terreno(file: UploadFile = File(...)):
     except Exception as e:
         return {"success": False, "error": str(e), "total": 0}
         if __name__ == "__main__":
-   
     # Forzamos a que use el puerto 8080 que le configuramos a Railway
     puerto = int(os.environ.get("PORT", 8080))
     uvicorn.run(app, host="0.0.0.0", port=puerto)
