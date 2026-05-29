@@ -54,11 +54,13 @@ async def procesar_foto_terreno(file: UploadFile = File(...)):
             "total": total_marcas,
             "engine": "JIGS-Proprietary-AI"
         }
-        
-    except Exception as e:
+        except Exception as e:
         return {"success": False, "error": str(e), "total": 0}
 
-# ESTO DEBE IR FUERA DE LA FUNCIÓN (SIN SANGRÍA)
+# ESTO DEBE IR AL NIVEL MÁS EXTERIOR (SIN ESPACIOS A LA IZQUIERDA)
 if __name__ == "__main__":
-    puerto = int(os.environ.get("PORT", 8080))
-    uvicorn.run(app, host="0.0.0.0", port=puerto)
+    import uvicorn
+    import os
+    port = int(os.environ.get("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
+   
